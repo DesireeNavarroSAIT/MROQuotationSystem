@@ -3,6 +3,7 @@ package com.mro.quotation.quote;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Class for a Quote within the system. Contains information such as customer requesting and employee reviewing the quote.
@@ -48,13 +49,13 @@ public class Quote {
     private List<OrderItem> orderItemList;
 
     @JsonProperty("operationsList")
-    private List<Operations> operationsList;
+    private List<Operation> operationList;
 
     public Quote() {}
 
     public Quote(Customer customer, Employee employee, String mroPartNumber, String customerPartNumber,
                  String originator, double complexityFactor, double targetPricing,
-                 List<OrderItem> orderItemList, List<Operations> operationsList) {
+                 List<OrderItem> orderItemList, List<Operation> operationList) {
         this.customer = customer;
         this.employee = employee;
         this.mroPartNumber = mroPartNumber;
@@ -63,7 +64,7 @@ public class Quote {
         this.complexityFactor = complexityFactor;
         this.targetPricing = targetPricing;
         this.orderItemList = orderItemList;
-        this.operationsList = operationsList;
+        this.operationList = operationList;
     }
 
     public Long getQuoteNumber() {
@@ -138,12 +139,12 @@ public class Quote {
         this.orderItemList = orderItemList;
     }
 
-    public List<Operations> getOperationsList() {
-        return operationsList;
+    public List<Operation> getOperationsList() {
+        return operationList;
     }
 
-    public void setOperationsList(List<Operations> operationsList) {
-        this.operationsList = operationsList;
+    public void setOperationsList(List<Operation> operationList) {
+        this.operationList = operationList;
     }
 
     @Override
@@ -158,7 +159,7 @@ public class Quote {
                 ", complexityFactor=" + complexityFactor +
                 ", targetPricing=" + targetPricing +
                 ", orderItemList=" + orderItemList +
-                ", operationsList=" + operationsList +
+                ", operationsList=" + operationList +
                 '}';
     }
 }
