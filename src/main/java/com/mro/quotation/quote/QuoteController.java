@@ -22,6 +22,7 @@ public class QuoteController {
 
     /**
      * Instantiates QuoteRepository in order for database transactions to occur.
+     *
      * @param quoteRepository An instance of QuoteRepository.
      */
     @Autowired

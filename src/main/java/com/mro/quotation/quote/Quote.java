@@ -1,6 +1,7 @@
 package com.mro.quotation.quote;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.mro.quotation.customer.Customer;
 
 import javax.persistence.*;
 import java.util.List;
@@ -27,6 +28,9 @@ public class Quote {
             generator = "quote_no_sequence"
     )
     private Long quoteNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     private Employee employee;
 
